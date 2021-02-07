@@ -3,8 +3,8 @@
 
 int removeDuplicates(int* nums, int numsSize)
 {
-	if (numsSize == 0)
-		return 0; 
+    if (numsSize == 0)
+        return 0; 
 
     int unique = 0; 		// started from 0 
     // 1, 1, 2
@@ -18,7 +18,7 @@ int removeDuplicates(int* nums, int numsSize)
     		nums[unique] = nums[i]; 
     	}
     }
-    
+
     return unique + 1; 
 }
 
