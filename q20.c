@@ -14,9 +14,9 @@ struct node_s
 typedef struct node_s node; 
 
 int isEmpty(node** top_ref) {
-    if (*top_ref == NULL)
-        return 1; 
-    return 0; 
+	if (*top_ref == NULL)
+		return 1; 
+	return 0; 
 }
 
 void push(char symbol, node** top_ref)
@@ -31,10 +31,10 @@ void push(char symbol, node** top_ref)
 char pop(node** top_ref)
 {
 	node* tmp = NULL;
-    char ret;
-    
-    if (isEmpty(top_ref))
-        return -1;
+	char ret;
+
+	if (isEmpty(top_ref))
+		return -1;
 
 	tmp = *top_ref; 
 	ret = tmp->symbol; 
@@ -46,11 +46,11 @@ char pop(node** top_ref)
 bool isValid(char *s)
 {
 	node* stack = malloc(sizeof(node) * MAX);
-    node* top = NULL; 		// poin to NULL first 
+	node* top = NULL; 		// poin to NULL first 
 	int N = strlen(s);
 
-    if (N == 1)
-        return false; 
+	if (N == 1)
+		return false; 
 
 	for (int i = 0; i < N; i++)
 	{
@@ -59,7 +59,7 @@ bool isValid(char *s)
 		if (s[i] == 40 || s[i] == 91 || s[i] == 123) {
 			push(s[i], &top);
 		}
-	    else if (s[i] == 41) {
+		else if (s[i] == 41) {
 			if (pop(&top) != 40)
 				return false; 
 		}
@@ -72,11 +72,11 @@ bool isValid(char *s)
 				return false; 
 		}	
 	}
-    
-    if (isEmpty(&top))
-	    return true; 
-    
-    return false; 
+
+	if (isEmpty(&top))
+		return true; 
+
+	return false; 
 }
 
 int main(int argc, char** argv)
@@ -89,5 +89,5 @@ int main(int argc, char** argv)
 	bool ret = isValid(s); 
 	printf("s = %s, ret = %d\n", s, ret); 
 
-	return 0; 
+return 0; 
 }
