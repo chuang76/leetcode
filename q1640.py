@@ -22,3 +22,18 @@ arr = [91, 4, 64, 78]
 pieces = [[78], [4,64], [91]]
 s = Solution()
 print(s.canFormArray(arr, pieces))
+
+# Solution 2: use the first element to reorganize 
+class Solution:
+    def canFormArray(self, arr, pieces):
+        mapping = {}
+        for piece in pieces:
+            mapping[piece[0]] = piece
+        print('mapping =', mapping)             # mapping = {78: [78], 4: [4, 64], 91: [91]}
+        
+        ans = []
+        for i in arr:
+            if i in mapping:
+                ans += mapping[i]
+        
+        return ans == arr
