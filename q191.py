@@ -10,3 +10,9 @@ class Solution:
 
 sol = Solution()
 print(sol.hammingWeight(4294967293))    # 31
+
+# use count function 
+class Solution:
+    def hammingWeight(self, n):
+        binary = "{0:032b}".format(n)
+        return binary.count("1")

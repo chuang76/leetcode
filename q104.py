@@ -27,4 +27,12 @@ class Solution:
 # root = 7, ldeph = 0, rdepth = 0
 # root = 20, ldeph = 1, rdepth = 1
 # root = 3, ldeph = 1, rdepth = 2
+
+class Solution:
+    
+    def maxDepth(self, root):
         
+        if root == None:
+            return 0
+        
+        return max(self.maxDepth(root.left), self.maxDepth(root.right)) + 1
