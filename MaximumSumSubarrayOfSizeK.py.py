@@ -17,3 +17,19 @@ def solution(A, K):
         ans = max(sum(A[i:i+K]), ans)
     
     return ans
+
+# Solution 2
+def solution(A, K):
+    
+    max_sum, local_sum = 0, 0
+    start = 0
+    
+    for end in range(len(A)):
+        local_sum += A[end]
+        
+        while end >= K-1:
+            max_sum = max(max_sum, local_sum)
+            local_sum -= A[start]              # 滑出
+            start += 1
+    
+    return max_sum

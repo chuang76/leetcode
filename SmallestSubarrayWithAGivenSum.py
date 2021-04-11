@@ -15,6 +15,7 @@ Output: 3
 Explanation: Smallest subarrays with a sum greater than or equal to '8' are [3, 4, 1] or [1, 1, 6].
 '''
 
+# 最短的 subarray 可以 >= K 
 def solution(A, K):
     
     if sum(A) < K:
@@ -36,3 +37,24 @@ def solution(A, K):
                 break 
     
     return min_len
+
+# Solution 2: use sliding window 
+def solution(A, K):
+    
+    local_sum = 0
+    length = len(A) + 1
+    start = 0
+    
+    for end in range(len(A)):
+        local_sum += A[end]
+        
+        while local_sum >= K:
+            # 太大了, 退掉 start 
+            length = min(length, end-start+1)
+            local_sum -= A[start]
+            start += 1
+        
+    if length == len(A) + 1:
+        return 0
+    
+    return length
